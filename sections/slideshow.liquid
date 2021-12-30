@@ -112,8 +112,14 @@
               {%- endif -%}
               <div class="slideshow__text-content" data-animate>
                 {%- if block.settings.title != blank -%}
-                  <h2 class="slideshow__heading h1">
-                    {{ block.settings.title | escape }}
+
+                  <h2 class="slideshow__heading {{ block.settings.title_size }}">
+                    {{ block.settings.title  }}
+                  </h2>
+                {%- endif -%}
+                {%- if block.settings.subtitle != blank -%}
+                  <h2 class="slideshow__heading {{ block.settings.subtitle_size }}">
+                    {{ block.settings.subtitle }}
                   </h2>
                 {%- endif -%}
                 {%- if show_center_cta and block.settings.cta_link != blank -%}
@@ -204,12 +210,14 @@
       {%- for block in section.blocks -%}
         <div class="slideshow__text-content slideshow__text-content-mobile" data-animate>
           {%- if block.settings.title != blank -%}
-            <h2 class="slideshow__heading h1">
-              {{ block.settings.title | escape }}
+            <h2 class="slideshow__heading {{ block.settings.title_size }}">
+              {{ block.settings.title }}
             </h2>
-            <h2 class="slideshow__heading h1">
-              testing subtitle
-          	</h2>
+          {%- endif -%}
+          {%- if block.settings.subtitle != blank -%}
+            <h2 class="slideshow__heading {{ block.settings.subtitle_size }}">
+              {{ block.settings.subtitle }}
+            </h2>
           {%- endif -%}
         </div>
       {%- endfor -%}
@@ -951,56 +959,322 @@
             "zh-TW": "文字"
           }
         },
-        {
-          "type": "text",
-          "id": "title",
-          "label": {
-            "cs": "Nadpis",
-            "da": "Overskrift",
-            "de": "Titel",
-            "en": "Heading",
-            "es": "Título",
-            "fi": "Otsake",
-            "fr": "Titre",
-            "it": "Titolo",
-            "ja": "見出し",
-            "ko": "제목",
-            "nb": "Overskrift",
-            "nl": "Kop",
-            "pl": "Nagłówek",
-            "pt-BR": "Título",
-            "pt-PT": "Título",
-            "sv": "Rubrik",
-            "th": "ส่วนหัว",
-            "tr": "Başlık",
-            "vi": "Tiêu đề",
-            "zh-CN": "标题",
-            "zh-TW": "標題"
-          },
-          "default": {
-            "cs": "Představte svůj příběh",
-            "da": "Fortæl din historie",
-            "de": "Erzähle deine Geschichte",
-            "en": "Tell your story",
-            "es": "Cuenta tu historia",
-            "fi": "Kerro tarinasi",
-            "fr": "Racontez votre histoire",
-            "it": "Racconta la tua storia",
-            "ja": "詳細をお聞かせください",
-            "ko": "당신의 이야기하기",
-            "nb": "Fortell historien din",
-            "nl": "Vertel je verhaal",
-            "pl": "Opowiedz swoją historię",
-            "pt-BR": "Conte sua história",
-            "pt-PT": "Conte a sua história",
-            "sv": "Berätta din historia",
-            "th": "บอกเล่าเรื่องราวของคุณ",
-            "tr": "Öykünüzü anlatın",
-            "vi": "Chia sẻ câu chuyện của bạn",
-            "zh-CN": "讲述您的故事",
-            "zh-TW": "分享您的故事"
-          }
-        },
+{
+"type": "richtext",
+"id": "title",
+"label": {
+"cs": "Text",
+"da": "Tekst",
+"de": "Text",
+"en": "Heading",
+"es": "Texto",
+"fi": "Teksti",
+"fr": "Texte",
+"it": "Testo",
+"ja": "テキスト",
+"ko": "텍스트",
+"nb": "Tekst",
+"nl": "Tekst",
+"pl": "Tekst",
+"pt-BR": "Texto",
+"pt-PT": "Texto",
+"sv": "Text",
+"th": "ข้อความ",
+"tr": "Metin",
+"vi": "Văn bản",
+"zh-CN": "文本",
+"zh-TW": "文字"
+},
+"default": {
+"cs": "<p>Prostřednictvím textového překryvu můžete zákazníkům prezentovat svoji značku. Vyberte obrázky, design a text, který reflektuje váš styl i firmu.</p>",
+"da": "<p>Brug tekstoverlejring til at give dine kunder indblik i dit brand. Vælg billeder og tekst, der passer til din stil og historie.</p>",
+"de": "<p>Lege Text über ein Bild und erzähle deinen Kunden mehr über deine Marke. Verwende Bilder und Texte, die zu deiner Markenstory und deinem Branding passen.</p>",
+"en": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+"es": "<p>Usa el texto superpuesto para darles información útil a tus clientes sobre tu marca. Selecciona imágenes y textos que se relacionen con tu estilo e historia.</p>",
+"fi": "<p>Käytä taustan päällä olevaa tekstiä, jotta asiakkaat voivat tutustua tuotemerkkisi. Valitse tyylisi ja tarinasi liittyvät kuvat ja teksti.</p>",
+"fr": "<p>Utilisez la superposition de texte pour donner un aperçu de votre marque à vos clients. Utilisez une image et du texte qui se rapportent au style et à l'histoire de votre marque.</p>",
+"it": "<p>Utilizza il testo in sovrapposizione per dare ai clienti informazioni sul tuo brand. Seleziona immagini e testo legati al tuo stile e alla tua storia.</p>",
+"ja": "<p>オーバーレイテキストを使用して、お客様があなたのブランドについてよく理解できるようにします。あなたのスタイルやストーリーに関連する画像やテキストを選択してください。</p>",
+"ko": "<p>오버레이 텍스트를 사용하여 고객에게 브랜드에 대한 통찰력을 부여하십시오. 자신의 스타일과 이야기와 관련된 이미지와 텍스트를 선택하십시오.</p>",
+"nb": "<p>Bruk overleggstekst til å gi kundene dine innsikt i merkevaren din. Velg bildebruk og tekst som er relatert til din stil og historie.</p>",
+"nl": "<p>Gebruik overlay-tekst om klanten een idee te geven van je merk. Selecteer afbeeldingen en tekst die passen bij je stijl en verhaal.</p>",
+"pl": "<p>Użyj tekstu nakładki, aby dać swoim klientom wgląd w Twoją markę. Wybierz obrazy i teksty, które odnoszą się do Twojego stylu i historii.</p>",
+"pt-BR": "<p>Use o texto de sobreposição para apresentar insights sobre sua marca aos clientes. Selecione imagens e textos que reflitam seu estilo e sua história.</p>",
+"pt-PT": "<p>Utilize o texto de sobreposição para fornecer informações sobre a sua marca aos clientes. Selecione imagens e textos que reflitam o seu estilo e a sua história.</p>",
+"sv": "<p>Använd överläggningstext för att ge dina kunder inblick i ditt varumärke. Välj bildspråk och text som gäller din stil och historia.</p>",
+"th": "<p>ใช้ข้อความซ้อนทับเพื่อให้ลูกค้าของคุณทราบถึงรายละเอียดเกี่ยวกับแบรนด์ เลือกรูปภาพและข้อความที่มีความเกี่ยวข้องกับสไตล์กับเรื่องราวของคุณ</p>",
+"tr": "<p>Yer paylaşımlı metin kullanarak müşterilerinizin kafasında mağazanız hakkında fikir oluşmasını sağlayın. Stilinize ve öykünüze uyan görseller ve metinler seçin.</p>",
+"vi": "<p>Sử dụng lớp phủ văn bản để đưa thông tin chi tiết khách hàng vào thương hiệu của bạn. Chọn hình ảnh và văn bản phù hợp với phong cách và câu chuyện của bạn.</p>",
+"zh-CN": "<p>使用叠加文本让客户深入了解您的品牌。选择与您的风格和故事相关的图片和文本。</p>",
+"zh-TW": "<p>運用文字疊加層讓顧客更加瞭解您的品牌。選擇與您風格和品牌故事相關的圖像和文字。</p>"
+}
+},
+{
+"type": "select",
+"id": "title_size",
+"label": {
+"cs": "Velikost textu",
+"da": "Tekststørrelse",
+"de": "Textgröße",
+"en": "Heading size",
+"es": "Tamaño del texto",
+"fi": "Tekstin koko",
+"fr": "Taille du texte",
+"it": "Dimensione testo",
+"ja": "文字サイズ",
+"ko": "텍스트 사이즈",
+"nb": "Tekststørrelse",
+"nl": "Tekengrootte",
+"pl": "Rozmiar czcionki",
+"pt-BR": "Tamanho do texto",
+"pt-PT": "Tamanho do texto",
+"sv": "Textstorlek",
+"th": "ขนาดตัวอักษร",
+"tr": "Metin boyutu",
+"vi": "Cỡ văn bản",
+"zh-CN": "文本大小",
+"zh-TW": "文字尺寸"
+},
+"default": "h2",
+"options": [
+{
+"label": {
+"cs": "Střední",
+"da": "Medium",
+"de": "Mittel",
+"en": "h3",
+"es": "Mediano",
+"fi": "Keskisuuri",
+"fr": "Moyenne",
+"it": "Medium",
+"ja": "中",
+"ko": "보통",
+"nb": "Middels",
+"nl": "Gemiddeld",
+"pl": "Średnia",
+"pt-BR": "Médio",
+"pt-PT": "Intermédio",
+"sv": "Medium",
+"th": "ปานกลาง",
+"tr": "Orta",
+"vi": "Trung bình",
+"zh-CN": "中等",
+"zh-TW": "中等"
+},
+"value": "h3"
+},
+{
+"label": {
+"cs": "Velká",
+"da": "Stor",
+"de": "Groß",
+"en": "h2",
+"es": "Grande",
+"fi": "Suuri",
+"fr": "Grande",
+"it": "Large",
+"ja": "大",
+"ko": "라지",
+"nb": "Stor",
+"nl": "Groot",
+"pl": "Duża",
+"pt-BR": "Grande",
+"pt-PT": "Grande",
+"sv": "Stor",
+"th": "ใหญ่",
+"tr": "Büyük",
+"vi": "Lớn",
+"zh-CN": "大",
+"zh-TW": "大型"
+},
+"value": "h2"
+},
+{
+"label": {
+"cs": "Velká",
+"da": "Stor",
+"de": "Groß",
+"en": "h1",
+"es": "Grande",
+"fi": "Suuri",
+"fr": "Grande",
+"it": "Large",
+"ja": "大",
+"ko": "라지",
+"nb": "Stor",
+"nl": "Groot",
+"pl": "Duża",
+"pt-BR": "Grande",
+"pt-PT": "Grande",
+"sv": "Stor",
+"th": "ใหญ่",
+"tr": "Büyük",
+"vi": "Lớn",
+"zh-CN": "大",
+"zh-TW": "大型"
+},
+"value": "h1"
+}
+]
+},
+{
+"type": "richtext",
+"id": "subtitle",
+"label": {
+"cs": "Text",
+"da": "Tekst",
+"de": "Text",
+"en": "SubHeading",
+"es": "Texto",
+"fi": "Teksti",
+"fr": "Texte",
+"it": "Testo",
+"ja": "テキスト",
+"ko": "텍스트",
+"nb": "Tekst",
+"nl": "Tekst",
+"pl": "Tekst",
+"pt-BR": "Texto",
+"pt-PT": "Texto",
+"sv": "Text",
+"th": "ข้อความ",
+"tr": "Metin",
+"vi": "Văn bản",
+"zh-CN": "文本",
+"zh-TW": "文字"
+},
+"default": {
+"cs": "<p>Prostřednictvím textového překryvu můžete zákazníkům prezentovat svoji značku. Vyberte obrázky, design a text, který reflektuje váš styl i firmu.</p>",
+"da": "<p>Brug tekstoverlejring til at give dine kunder indblik i dit brand. Vælg billeder og tekst, der passer til din stil og historie.</p>",
+"de": "<p>Lege Text über ein Bild und erzähle deinen Kunden mehr über deine Marke. Verwende Bilder und Texte, die zu deiner Markenstory und deinem Branding passen.</p>",
+"en": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+"es": "<p>Usa el texto superpuesto para darles información útil a tus clientes sobre tu marca. Selecciona imágenes y textos que se relacionen con tu estilo e historia.</p>",
+"fi": "<p>Käytä taustan päällä olevaa tekstiä, jotta asiakkaat voivat tutustua tuotemerkkisi. Valitse tyylisi ja tarinasi liittyvät kuvat ja teksti.</p>",
+"fr": "<p>Utilisez la superposition de texte pour donner un aperçu de votre marque à vos clients. Utilisez une image et du texte qui se rapportent au style et à l'histoire de votre marque.</p>",
+"it": "<p>Utilizza il testo in sovrapposizione per dare ai clienti informazioni sul tuo brand. Seleziona immagini e testo legati al tuo stile e alla tua storia.</p>",
+"ja": "<p>オーバーレイテキストを使用して、お客様があなたのブランドについてよく理解できるようにします。あなたのスタイルやストーリーに関連する画像やテキストを選択してください。</p>",
+"ko": "<p>오버레이 텍스트를 사용하여 고객에게 브랜드에 대한 통찰력을 부여하십시오. 자신의 스타일과 이야기와 관련된 이미지와 텍스트를 선택하십시오.</p>",
+"nb": "<p>Bruk overleggstekst til å gi kundene dine innsikt i merkevaren din. Velg bildebruk og tekst som er relatert til din stil og historie.</p>",
+"nl": "<p>Gebruik overlay-tekst om klanten een idee te geven van je merk. Selecteer afbeeldingen en tekst die passen bij je stijl en verhaal.</p>",
+"pl": "<p>Użyj tekstu nakładki, aby dać swoim klientom wgląd w Twoją markę. Wybierz obrazy i teksty, które odnoszą się do Twojego stylu i historii.</p>",
+"pt-BR": "<p>Use o texto de sobreposição para apresentar insights sobre sua marca aos clientes. Selecione imagens e textos que reflitam seu estilo e sua história.</p>",
+"pt-PT": "<p>Utilize o texto de sobreposição para fornecer informações sobre a sua marca aos clientes. Selecione imagens e textos que reflitam o seu estilo e a sua história.</p>",
+"sv": "<p>Använd överläggningstext för att ge dina kunder inblick i ditt varumärke. Välj bildspråk och text som gäller din stil och historia.</p>",
+"th": "<p>ใช้ข้อความซ้อนทับเพื่อให้ลูกค้าของคุณทราบถึงรายละเอียดเกี่ยวกับแบรนด์ เลือกรูปภาพและข้อความที่มีความเกี่ยวข้องกับสไตล์กับเรื่องราวของคุณ</p>",
+"tr": "<p>Yer paylaşımlı metin kullanarak müşterilerinizin kafasında mağazanız hakkında fikir oluşmasını sağlayın. Stilinize ve öykünüze uyan görseller ve metinler seçin.</p>",
+"vi": "<p>Sử dụng lớp phủ văn bản để đưa thông tin chi tiết khách hàng vào thương hiệu của bạn. Chọn hình ảnh và văn bản phù hợp với phong cách và câu chuyện của bạn.</p>",
+"zh-CN": "<p>使用叠加文本让客户深入了解您的品牌。选择与您的风格和故事相关的图片和文本。</p>",
+"zh-TW": "<p>運用文字疊加層讓顧客更加瞭解您的品牌。選擇與您風格和品牌故事相關的圖像和文字。</p>"
+}
+},
+{
+"type": "select",
+"id": "subtitle_size",
+"label": {
+"cs": "Velikost textu",
+"da": "Tekststørrelse",
+"de": "Textgröße",
+"en": "SubHeading size",
+"es": "Tamaño del texto",
+"fi": "Tekstin koko",
+"fr": "Taille du texte",
+"it": "Dimensione testo",
+"ja": "文字サイズ",
+"ko": "텍스트 사이즈",
+"nb": "Tekststørrelse",
+"nl": "Tekengrootte",
+"pl": "Rozmiar czcionki",
+"pt-BR": "Tamanho do texto",
+"pt-PT": "Tamanho do texto",
+"sv": "Textstorlek",
+"th": "ขนาดตัวอักษร",
+"tr": "Metin boyutu",
+"vi": "Cỡ văn bản",
+"zh-CN": "文本大小",
+"zh-TW": "文字尺寸"
+},
+"default": "h2",
+"options": [
+{
+"label": {
+"cs": "Střední",
+"da": "Medium",
+"de": "Mittel",
+"en": "h3",
+"es": "Mediano",
+"fi": "Keskisuuri",
+"fr": "Moyenne",
+"it": "Medium",
+"ja": "中",
+"ko": "보통",
+"nb": "Middels",
+"nl": "Gemiddeld",
+"pl": "Średnia",
+"pt-BR": "Médio",
+"pt-PT": "Intermédio",
+"sv": "Medium",
+"th": "ปานกลาง",
+"tr": "Orta",
+"vi": "Trung bình",
+"zh-CN": "中等",
+"zh-TW": "中等"
+},
+"value": "h3"
+},
+{
+"label": {
+"cs": "Velká",
+"da": "Stor",
+"de": "Groß",
+"en": "h2",
+"es": "Grande",
+"fi": "Suuri",
+"fr": "Grande",
+"it": "Large",
+"ja": "大",
+"ko": "라지",
+"nb": "Stor",
+"nl": "Groot",
+"pl": "Duża",
+"pt-BR": "Grande",
+"pt-PT": "Grande",
+"sv": "Stor",
+"th": "ใหญ่",
+"tr": "Büyük",
+"vi": "Lớn",
+"zh-CN": "大",
+"zh-TW": "大型"
+},
+"value": "h2"
+},
+{
+"label": {
+"cs": "Velká",
+"da": "Stor",
+"de": "Groß",
+"en": "h1",
+"es": "Grande",
+"fi": "Suuri",
+"fr": "Grande",
+"it": "Large",
+"ja": "大",
+"ko": "라지",
+"nb": "Stor",
+"nl": "Groot",
+"pl": "Duża",
+"pt-BR": "Grande",
+"pt-PT": "Grande",
+"sv": "Stor",
+"th": "ใหญ่",
+"tr": "Büyük",
+"vi": "Lớn",
+"zh-CN": "大",
+"zh-TW": "大型"
+},
+"value": "h1"
+}
+]
+},
         {
           "type": "text",
           "id": "button",
