@@ -2725,6 +2725,26 @@ $card-image-placeholder: rgba($color-body-text, 0.35);
   }
 }
 
+.card__image--hover-in {
+  @extend .card__image;
+  opacity: 0;
+  display: none;
+
+  .card__wrapper:hover & {
+    opacity: 1;
+    transition: .6s;
+  }
+}
+
+.card__image--hover-out {
+  @extend .card__image;
+
+  .card__wrapper:hover & {
+    opacity: 0;
+    transition: .6s;
+  }
+}
+
 .card__image-wrapper,
 .card__image {
   display: block;
@@ -2767,9 +2787,9 @@ $card-image-placeholder: rgba($color-body-text, 0.35);
   height: 100%;
   transition: $card-transition;
 
-  .card__wrapper:hover & {
-    @include transform(scale(1.05));
-  }
+  /*  .card__wrapper:hover & {
+        @include transform(scale(1.05));
+    }*/
 
   &.lazyloaded + .card__preloader {
     display: none;
