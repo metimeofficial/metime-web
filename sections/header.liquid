@@ -222,9 +222,23 @@
             {% endif %}
         </div>
         <div class="site-header__section site-header__section--button"
-             style="display: grid; grid-template-columns: 1fr 1fr 1fr">
+             style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr">
+
             <div style="display: inline-block;float: left">
-                <a href="/search" class="btn btn--clear btn--square btn--hover-scale site-header__cart"
+                <a href="{% if localization.language.iso_code == 'zh-CN' %} / {% else %} /zh-cn {% endif %}"
+                   class="btn btn--clear btn--square btn--hover-scale site-header__cart"
+                   aria-expanded="false">
+                    {% if localization.language.iso_code != 'zh-CN' %}
+                        {% include "icon-header-chinese" %}
+                    {% else %}
+                        {% include "icon-header-english" %}
+                    {% endif %}
+
+                </a>
+            </div>
+
+            <div style="display: inline-block;float: left">
+                <a href="{{ routes.search_url }}" class="btn btn--clear btn--square btn--hover-scale site-header__cart"
                    aria-expanded="false">
                     {% include 'icon-header-search' %}
                 </a>
@@ -233,7 +247,7 @@
             <div style="display: inline-block;float: left">
 
                 {% comment %}<a href="/account/login" id="customer_login_link" class="site-header__link site-header__cart">{% endcomment %}
-                <a href="/account/login" class="btn btn--clear btn--square btn--hover-scale site-header__cart"
+                <a href="{{ routes.account_url }}" class="btn btn--clear btn--square btn--hover-scale site-header__cart"
                    aria-expanded="false">
                     {% include 'icon-header-account' %}
 
