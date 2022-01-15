@@ -83,19 +83,6 @@
           "newsletter_subheading": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>"
         }
       },
-      "1476381402840": {
-        "type": "video",
-        "settings": {
-          "cover_text": "Play Me",
-          "video_url": "https:\/\/www.youtube.com\/watch?v=01Q1apsBXxQ",
-          "cover_image": "shopify:\/\/shop_images\/img.get-focused_2x_5b011a5d-9ee3-4b77-8985-a4d7edd522bf.jpg",
-          "cover_image_position": "center center",
-          "show_overlay": true,
-          "overlay_color": "#000000",
-          "overlay_text": "#ffffff",
-          "overlay_opacity": 30
-        }
-      },
       "1476381658595": {
         "type": "hero",
         "settings": {
@@ -456,6 +443,12 @@
           "feed_width": 100,
           "html_area": ""
         }
+      },
+      "164223379484a10a19": {
+        "type": "youtube",
+        "settings": {
+          "video_id": "01Q1apsBXxQ"
+        }
       }
     },
     "content_for_index": [
@@ -468,7 +461,7 @@
       "1478026923193",
       "1642061557722e9164",
       "1478027260401",
-      "1476381402840",
+      "164223379484a10a19",
       "1486649522802",
       "1642232835d6ed4a0e"
     ]
