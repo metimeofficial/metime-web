@@ -422,12 +422,6 @@
           "bottom_margin": false
         }
       },
-      "1640000669a1da522b": {
-        "type": "af-instagram-slider",
-        "settings": {
-          "text-box": "Please Save and Reload"
-        }
-      },
       "product-recommendations": {
         "type": "product-recommendations",
         "settings": {
@@ -453,6 +447,15 @@
           "desktop_layout": "right",
           "mobile_layout": "top"
         }
+      },
+      "1642232835d6ed4a0e": {
+        "type": "instafeed",
+        "settings": {
+          "heading_font": "helvetica_n4",
+          "heading_size": 20,
+          "feed_width": 100,
+          "html_area": ""
+        }
       }
     },
     "content_for_index": [
@@ -467,7 +470,7 @@
       "1478027260401",
       "1476381402840",
       "1486649522802",
-      "1640000669a1da522b"
+      "1642232835d6ed4a0e"
     ]
   },
   "presets": {
