@@ -85,6 +85,7 @@
       },
       "1476381402840": {
         "type": "video",
+        "disabled": true,
         "settings": {
           "cover_text": "Play Me",
           "video_url": "https:\/\/www.youtube.com\/watch?v=01Q1apsBXxQ",
@@ -304,6 +305,7 @@
       },
       "1486649522802": {
         "type": "highlight",
+        "disabled": true,
         "settings": {
           "border_color": "#cbc8c1",
           "content_alignment": "middle",
