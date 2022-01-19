@@ -45,9 +45,10 @@
         "type": "header",
         "settings": {
           "icon": "bag",
-          "logo_max_height": 25,
+          "logo": "shopify:\/\/shop_images\/IMG_9191-removebg-preview.png",
+          "logo_max_height": 60,
           "enable_transparent": true,
-          "transparent_logo": "shopify:\/\/shop_images\/close-up-of-a-pine-tree-showing-texture-of-pine-needles.jpg",
+          "transparent_logo": "shopify:\/\/shop_images\/IMG_9191-removebg-preview-modified.png",
           "transparent_text_color": "#ffffff",
           "primary_navigation": "main-menu",
           "secondary_navigation": "footer",
