@@ -69,108 +69,121 @@
         {% endif %}
 
         <div class="site-header-sections page-width">
-            <nav class="site-header__section site-header__section--button"
-                 data-site-navigation role="navigation"
-            >
-                <button class="site-header__navigation btn btn--clear btn--square"
-                        aria-expanded="false"
-                        data-navigation-button
-                >
-                    <span class="burger-icon burger-icon--top"></span>
-                    <span class="burger-icon burger-icon--mid"></span>
-                    <span class="burger-icon burger-icon--bottom"></span>
-                    <span class="icon__fallback-text">{{ 'general.header.menu' | t }}</span>
-                </button>
-                <div class="navigation supports-no-js critical-hide" data-section-id="{{ section.id }}"
-                     data-section-type="navigation" aria-hidden=true>
-                    <div class="navigation__container">
-                        <ul class="navigation__links">
-                            {% for link in linklists[section.settings.primary_navigation].links %}
-                                {% assign child_list_handle = link.title | handleize %}
-                                {% if link.links != blank %}
-                                    <li class="navigation__link navigation__has-sublinks navigation__has-sublinks--collapsed navigation__entrance-animation">
-                                        <button class="navigation__expand-sublinks"
-                                                aria-expanded="{% if link.active %}true{% else %}false{% endif %}">
-                                            <span aria-hidden="true">{{ link.title }}</span>
-                                            <span class="visually-hidden">{{ 'general.navigation.toggle_sublinks' | t: link_title: link.title }}</span>
-                                            {% include 'icon-arrow-down' %}
-                                        </button>
-                                        <div class="navigation__sublinks-container">
-                                            <ul class="navigation__sublinks">
-                                                {% for childlink in link.links %}
-                                                    <li class="navigation__sublink{% if childlink.links != blank %} navigation__has-sublinks navigation__has-sublinks--collapsed{% endif %}">
-                                                        {% if childlink.links != blank %}
-                                                            <button class="navigation__expand-sublinks navigation__expand-sublinks--third-level"
-                                                                    aria-expanded="{% if link.active %}true{% else %}false{% endif %}">
-                                                                <span aria-hidden="true">{{ childlink.title }}</span>
-                                                                <span class="visually-hidden">{{ 'general.navigation.toggle_sublinks' | t: link_title: childlink.title }}</span>
-                                                                {% include 'icon-arrow-down' %}
-                                                            </button>
-                                                            <div class="navigation__sublinks-container">
-                                                                <ul class="navigation__sublinks navigation__sublinks--third-level">
-                                                                    {% for grandchildlink in childlink.links %}
-                                                                        <li class="navigation__sublink--third-level">
-                                                                            <a href="{{ grandchildlink.url }}"{% if grandchildlink.active %} aria-current="page"{% endif %}>{{ grandchildlink.title | escape }}</a>
-                                                                        </li>
-                                                                    {% endfor %}
-                                                                </ul>
-                                                            </div>
-                                                        {% else %}
-                                                            <a href="{{ childlink.url }}"{% if childlink.active %} aria-current="page"{% endif %}>{{ childlink.title | escape }}</a>
-                                                        {% endif %}
-                                                    </li>
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
-                                    </li>
-                                {% else %}
-                                    <li class="navigation__link navigation__entrance-animation{% if link.active %} navigation__link--active{% endif %}">
-                                        <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
+            <div class="site-header__left">
+                <div style="display: inline-block;float: left">
+                    <nav class="site-header__section site-header__section--button"
+                         data-site-navigation role="navigation"
+                    >
 
-                        <ul class="navigation__links">
-                            {% if shop.customer_accounts_enabled %}
-                                {% if customer %}
-                                    <li class="navigation__link navigation__link--secondary navigation__entrance-animation">
-                                        {% if customer.first_name != blank %}
-                                            {% capture first_name %}{{ customer.first_name }}{% endcapture %}
-                                            <a href="{{ routes.account_url }}">{{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}</a>
+                        <button class="site-header__navigation btn btn--clear btn--square"
+                                aria-expanded="false"
+                                data-navigation-button
+                        >
+                            <span class="burger-icon burger-icon--top"></span>
+                            <span class="burger-icon burger-icon--mid"></span>
+                            <span class="burger-icon burger-icon--bottom"></span>
+                            <span class="icon__fallback-text">{{ 'general.header.menu' | t }}</span>
+                        </button>
+                        <div class="navigation supports-no-js critical-hide" data-section-id="{{ section.id }}"
+                             data-section-type="navigation" aria-hidden=true>
+                            <div class="navigation__container">
+                                <ul class="navigation__links">
+                                    {% for link in linklists[section.settings.primary_navigation].links %}
+                                        {% assign child_list_handle = link.title | handleize %}
+                                        {% if link.links != blank %}
+                                            <li class="navigation__link navigation__has-sublinks navigation__has-sublinks--collapsed navigation__entrance-animation">
+                                                <button class="navigation__expand-sublinks"
+                                                        aria-expanded="{% if link.active %}true{% else %}false{% endif %}">
+                                                    <span aria-hidden="true">{{ link.title }}</span>
+                                                    <span class="visually-hidden">{{ 'general.navigation.toggle_sublinks' | t: link_title: link.title }}</span>
+                                                    {% include 'icon-arrow-down' %}
+                                                </button>
+                                                <div class="navigation__sublinks-container">
+                                                    <ul class="navigation__sublinks">
+                                                        {% for childlink in link.links %}
+                                                            <li class="navigation__sublink{% if childlink.links != blank %} navigation__has-sublinks navigation__has-sublinks--collapsed{% endif %}">
+                                                                {% if childlink.links != blank %}
+                                                                    <button class="navigation__expand-sublinks navigation__expand-sublinks--third-level"
+                                                                            aria-expanded="{% if link.active %}true{% else %}false{% endif %}">
+                                                                        <span aria-hidden="true">{{ childlink.title }}</span>
+                                                                        <span class="visually-hidden">{{ 'general.navigation.toggle_sublinks' | t: link_title: childlink.title }}</span>
+                                                                        {% include 'icon-arrow-down' %}
+                                                                    </button>
+                                                                    <div class="navigation__sublinks-container">
+                                                                        <ul class="navigation__sublinks navigation__sublinks--third-level">
+                                                                            {% for grandchildlink in childlink.links %}
+                                                                                <li class="navigation__sublink--third-level">
+                                                                                    <a href="{{ grandchildlink.url }}"{% if grandchildlink.active %} aria-current="page"{% endif %}>{{ grandchildlink.title | escape }}</a>
+                                                                                </li>
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                    </div>
+                                                                {% else %}
+                                                                    <a href="{{ childlink.url }}"{% if childlink.active %} aria-current="page"{% endif %}>{{ childlink.title | escape }}</a>
+                                                                {% endif %}
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            </li>
                                         {% else %}
-                                            <a href="{{ routes.account_url }}">{{ 'layout.customer.account' | t }}</a>
+                                            <li class="navigation__link navigation__entrance-animation{% if link.active %} navigation__link--active{% endif %}">
+                                                <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                                            </li>
                                         {% endif %}
-                                    </li>
-                                    <li class="navigation__link navigation__link--secondary navigation__entrance-animation">
-                                        <a href="{{ routes.account_logout_url }}">{{ 'layout.customer.log_out' | t }}</a>
-                                    </li>
-                                {% else %}
-                                    <li class="navigation__link navigation__link--secondary navigation__entrance-animation">
-                                        <a href="{{ routes.account_login_url }}">{{ 'layout.customer.log_in' | t }}</a>
-                                    </li>
-                                    <li class="navigation__link navigation__link--secondary navigation__entrance-animation">
-                                        <a href="{{ routes.account_register_url }}">{{ 'layout.customer.create_account' | t }}</a>
-                                    </li>
+                                    {% endfor %}
+                                </ul>
+
+                                <ul class="navigation__links">
+                                    {% if shop.customer_accounts_enabled %}
+                                        {% if customer %}
+                                            <li class="navigation__link navigation__link--secondary navigation__entrance-animation">
+                                                {% if customer.first_name != blank %}
+                                                    {% capture first_name %}{{ customer.first_name }}{% endcapture %}
+                                                    <a href="{{ routes.account_url }}">{{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}</a>
+                                                {% else %}
+                                                    <a href="{{ routes.account_url }}">{{ 'layout.customer.account' | t }}</a>
+                                                {% endif %}
+                                            </li>
+                                            <li class="navigation__link navigation__link--secondary navigation__entrance-animation">
+                                                <a href="{{ routes.account_logout_url }}">{{ 'layout.customer.log_out' | t }}</a>
+                                            </li>
+                                        {% else %}
+                                            <li class="navigation__link navigation__link--secondary navigation__entrance-animation">
+                                                <a href="{{ routes.account_login_url }}">{{ 'layout.customer.log_in' | t }}</a>
+                                            </li>
+                                            <li class="navigation__link navigation__link--secondary navigation__entrance-animation">
+                                                <a href="{{ routes.account_register_url }}">{{ 'layout.customer.create_account' | t }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% for link in linklists[section.settings.secondary_navigation].links %}
+                                        <li class="navigation__link navigation__link--secondary navigation__entrance-animation{% if link.active %} navigation__link--active{% endif %}">
+                                            <a href="{{ link.url }}">{{ link.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+
+                                {% if section.settings.show_social_icons %}
+                                    <div class="navigation__social-sharing navigation__entrance-animation">
+                                        {% include 'social-links', disableTab: true, largeIcons: true %}
+                                    </div>
                                 {% endif %}
-                            {% endif %}
-                            {% for link in linklists[section.settings.secondary_navigation].links %}
-                                <li class="navigation__link navigation__link--secondary navigation__entrance-animation{% if link.active %} navigation__link--active{% endif %}">
-                                    <a href="{{ link.url }}">{{ link.title }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
 
-                        {% if section.settings.show_social_icons %}
-                            <div class="navigation__social-sharing navigation__entrance-animation">
-                                {% include 'social-links', disableTab: true, largeIcons: true %}
+                                <!--             {% include 'search-bar', animate: true, disableTab: true %} -->
                             </div>
-                        {% endif %}
-
-                        <!--             {% include 'search-bar', animate: true, disableTab: true %} -->
-                    </div>
+                        </div>
+                    </nav>
                 </div>
-            </nav>
+                <div style="display: inline-block;float: left">
+                    <a href="{{ routes.search_url }}"
+                       class="btn btn--clear btn--square btn--hover-scale site-header__cart"
+                       aria-expanded="false">
+                        {% include 'icon-header-search' %}
+                    </a>
+                </div>
+                <div style="display: inline-block;float: left"></div>
+            </div>
             <div class="site-header__section site-header__section--title">
                 {% comment %}
                 Use the uploaded logo from theme settings if enabled.
@@ -221,8 +234,8 @@
             </div>
             {% endif %}
         </div>
-        <div class="site-header__section site-header__section--button"
-             style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr">
+        <div class="site-header__section site-header__section--button site-header__right"
+        >
 
             <div style="display: inline-block;float: left">
                 <a href="{% if localization.language.iso_code == 'zh-CN' %} / {% else %} /zh-cn {% endif %}"
@@ -237,12 +250,6 @@
                 </a>
             </div>
 
-            <div style="display: inline-block;float: left">
-                <a href="{{ routes.search_url }}" class="btn btn--clear btn--square btn--hover-scale site-header__cart"
-                   aria-expanded="false">
-                    {% include 'icon-header-search' %}
-                </a>
-            </div>
 
             <div style="display: inline-block;float: left">
 
