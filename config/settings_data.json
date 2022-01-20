@@ -305,6 +305,7 @@
       },
       "1486649604878": {
         "type": "featured-slider",
+        "disabled": true,
         "blocks": {
           "1486649604878-0": {
             "type": "slide",
@@ -359,6 +360,7 @@
       },
       "1486649811524": {
         "type": "featured-product",
+        "disabled": true,
         "settings": {
           "featured_product": "brown-sugar-ginger-tea",
           "show_quantity_selector": false,
@@ -383,6 +385,7 @@
       },
       "1492806970384": {
         "type": "custom-content",
+        "disabled": true,
         "blocks": {
           "1492806970384-0": {
             "type": "text",
@@ -450,12 +453,71 @@
         "settings": {
           "video_id": "01Q1apsBXxQ"
         }
+      },
+      "16426518829612a33f": {
+        "type": "featured-collection",
+        "settings": {
+          "collection": "",
+          "show_spacing": false,
+          "title": "Featured collection",
+          "show_vendor": false,
+          "show_view_all": false,
+          "use_second_button": false,
+          "grid_style": "collage",
+          "products": 3,
+          "rows": 2
+        }
+      },
+      "1642652062b7a0b819": {
+        "type": "slideshow",
+        "disabled": true,
+        "blocks": {
+          "1642652062b7a0b819-0": {
+            "type": "image",
+            "settings": {
+              "alignment": "center center",
+              "title": "<p>missing translation: en<\/p>",
+              "title_size": "h2",
+              "subtitle": "<p>missing translation: en<\/p>",
+              "subtitle_size": "h2",
+              "button": "Slide title",
+              "cta": "View more",
+              "cta_link": ""
+            }
+          },
+          "1642652062b7a0b819-1": {
+            "type": "image",
+            "settings": {
+              "alignment": "center center",
+              "title": "<p>missing translation: en<\/p>",
+              "title_size": "h2",
+              "subtitle": "<p>missing translation: en<\/p>",
+              "subtitle_size": "h2",
+              "button": "Slide title",
+              "cta": "View more",
+              "cta_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1642652062b7a0b819-0",
+          "1642652062b7a0b819-1"
+        ],
+        "settings": {
+          "slider_height": "adapt",
+          "center_cta": true,
+          "show_overlay": true,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": 25
+        }
       }
     },
     "content_for_index": [
       "slideshow",
       "1476381658595",
       "1486649413883",
+      "16426518829612a33f",
       "1492806970384",
       "1486649811524",
       "1486649604878",
@@ -464,7 +526,8 @@
       "1478027260401",
       "164223379484a10a19",
       "1486649522802",
-      "1642232835d6ed4a0e"
+      "1642232835d6ed4a0e",
+      "1642652062b7a0b819"
     ]
   },
   "presets": {
