@@ -123,6 +123,7 @@
           "product_sorting_enable": false,
           "collection_hero_image": false,
           "collection_hero_image_parallax": false,
+          "grid_style": "collage",
           "show_spacing": false,
           "show_vendor": true
         }
@@ -177,13 +178,13 @@
       "product-template": {
         "type": "product-template",
         "settings": {
-          "show_quantity_selector": false,
+          "show_quantity_selector": true,
           "show_variant_labels": true,
-          "show_vendor": false,
+          "show_vendor": true,
           "enable_payment_button": true,
           "show_share_buttons": true,
-          "enable_video_looping": false,
-          "hide_variant_media": true
+          "enable_video_looping": true,
+          "hide_variant_media": false
         }
       },
       "blog-template": {
